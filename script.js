@@ -50,11 +50,14 @@ function cambiarFondo(tipo) {
       if (tipo === "grass") {
         body.style.backgroundColor = "green";
         infoPokemon.style.backgroundColor = "rgba(141, 226, 160, 0.8)";
-
-      }else {
-        body.style.backgroundColor = "white";
-        infoPokemon.style.backgroundColor = "rgba(204, 71, 200, 0.95)";
-
+      } else {
+        if (tipo === "electric") {
+          body.style.backgroundColor = "yellow";
+          infoPokemon.style.backgroundColor = "rgba(213, 213, 140, 0.8)";
+        } else {
+          body.style.backgroundColor = "white";
+          infoPokemon.style.backgroundColor = "rgba(204, 71, 200, 0.95)";
+        }
       }
     }
   }
