@@ -2,21 +2,24 @@
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <title>Inicio - Cambio de Color</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ejemplo API Pokemon</title>
     <link rel="stylesheet" href="estilos.css" />
   </head>
   <body>
-    <menu-navegacion></menu-navegacion>
+    <header>
+      <h1>Busqueda de Pokemon</h1>
+    </header>
     <main>
-      <h1>Personaliza tu fondo-cambio</h1>
-      <p>Elige un color para cambiar el ambiente:</p>
-      <div class="botones">
-        <button id="btnAzul">Azul</button>
-        <button id="btnRojo">Rojo</button>
-        <button id="btnVerde">Verde</button>
-      </div>
+      <section id="busqueda">
+        <input type="text" id="pokemonName" placeholder="Ingrese el nombre del Pokemon" />
+        <button id="btnBuscar">Buscar Pokemon</button>
+        <div id="pokemonData"></div>
+      </section>
+      <section id="infoPokemon">
+        <p>Información del Pokemon</p>
+      </section>
     </main>
-
-    <script src="script.js"></script>
+    <script type="module" src="script.js"></script>
   </body>
 </html>
