@@ -1,11 +1,32 @@
+import { EjemploGuardar } from './js/Data/EjemploGuardar.js';
+
 const btnBuscar = document.getElementById("btnBuscar");
+const btnGuardar = document.getElementById("btnGuardar");
+const btnLeer = document.getElementById("btnLeer");
 const inputNombrePokemon = document.getElementById("pokemonName");
 const sectionInfoPokemon = document.getElementById("infoPokemon");
 const body = document.body;
 const infoPokemon = document.getElementById("infoPokemon");
+
 btnBuscar.addEventListener("click", () => {
   buscarPokemon(inputNombrePokemon.value.toLowerCase());
 });
+
+btnGuardar.addEventListener("click", () => {
+  const pokemones=[{nombre:'Pikachu', nivel:10}, {nombre:'Charmander', nivel: 36}];
+  EjemploGuardar.guardarPokemones(pokemones);
+  alert('Pokemmon guardado');
+});
+
+btnLeer.addEventListener("click", () => {
+  const pokemones=EjemploGuardar.obtenerPokemones();
+  let datosPokemones='';
+  pokemones.forEach(p => {
+    datosPokemones += `Nombre: ${p.nombre}, Nivel: ${p.nivel}\n`;
+  });
+  alert(datosPokemones);
+});
+
 
 async function buscarPokemon(nombre) {
   sectionInfoPokemon.innerHTML = "<>Buscando Pokemon...</>";
@@ -28,7 +49,7 @@ async function buscarPokemon(nombre) {
 function mostrarInfoPokemon(datos) {
   sectionInfoPokemon.innerHTML = `
     <div>
-        <img src="${datos.sprites.other["official-artwork"].front_default}" alt="${datos.name}" />
+        <img src="${datos.sprites.other["official-artwork"].front_default}" alt="${datos.name}" width="300px" height="300px" />
         <h2>${datos.name.toUpperCase()}</h2>
         <p>${datos.types.map((type) => type.type.name).join(", ")}</p>
         <p>Altura: ${datos.height / 10} m</p>
@@ -36,7 +57,7 @@ function mostrarInfoPokemon(datos) {
 
     </div>
     `;
-}
+}//fin funcion mostrar info pokemon
 
 function cambiarFondo(tipo) {
   if (tipo === "fire") {
@@ -61,4 +82,4 @@ function cambiarFondo(tipo) {
       }
     }
   }
-}
+}//fin funcion cambiar fondo
